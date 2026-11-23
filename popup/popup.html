@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>MailGPT</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <main>
+        <h2>MailGPT</h2>
+
+        <div id="status">Загрузка письма...</div>
+
+        <section>
+            <label>Отправитель</label>
+            <p id="from">-</p>
+        </section>
+
+        <section>
+            <label>Тема письма</label>
+            <p id="subject">-</p>
+        </section>
+
+        <section>
+            <label>Тело письма</label>
+            <textarea
+                id="body"
+                readonly
+                placeholder="Текст письма появится здесь..."
+            ></textarea>
+            <div id="bodyInfo"></div>
+        </section>
+    </main>
+
+    <script type="module" src="popup.js"></script>
+</body>
+</html>
