@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MailGPT</title>
+    <link rel="stylesheet" href="assistant.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">MailGPT</div>
+        <div id="status" class="status">Подключение к Thunderbird...</div>
+    </header>
+
+    <main class="workspace">
+
+        <!-- Почтовые аккаунты и папки -->
+        <aside class="sidebar">
+            <h3>Почта</h3>
+            <div id="accounts">
+                Загрузка аккаунтов...
+            </div>
+        </aside>
+
+        <!-- Список писем -->
+        <section class="messages">
+            <div class="messages-header">
+                <h3 id="folderTitle">Письма</h3>
+
+                <input
+                    id="search"
+                    type="search"
+                    placeholder="Поиск в загруженных письмах..."
+                >
+            </div>
+            
+            <div class="message-selection-toolbar">
+                <button id="selectAllMessages" type="button">
+                    Выбрать все
+                </button>
+
+                <button id="clearSelectedMessages" type="button" hidden>
+                    Очистить выбор
+                </button>
+
+                <span id="selectedCount">Выбрано: 0</span>
+            </div>
+
+            <div id="messageList">
+                Выбери почтовую папку
+            </div>
+
+            <button id="loadMore" hidden>
+                Загрузить ещё
+            </button>
+        </section>
+
+        <!-- Просмотр письма и GPT -->
+        <section class="assistant">
+
+            <div class="email-section">
+                <h3>Письмо</h3>
+
+                <div id="selectedMessage">
+                    <div id="previewFrom">Выбери письмо слева</div>
+                    <h4 id="previewSubject"></h4>
+                    <div id="previewDate"></div>
+                </div>
+
+               <iframe
+                    id="messageBody"
+                    title="Содержимое письма"
+                    sandbox=""
+                    referrerpolicy="no-referrer"
+                ></iframe>
+            </div>
+
+            <div class="ai-section">
+                <h3>GPT Assistant</h3>
+
+                <div id="chat">
+                    <div class="welcome">
+                        <h2>Чем могу помочь?</h2>
+                        <p>
+                            Выбери письмо, чтобы GPT мог его
+                            проанализировать и помочь с ответом.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="chat-input">
+                    <textarea
+                        id="prompt"
+                        placeholder="Напиши сообщение..."
+                    ></textarea>
+
+                    <div class="chat-actions">
+                        <button id="summary" type="button">
+                            Пересказ
+                        </button>
+
+                        <button id="draftReply" type="button">
+                            Готовый ответ
+                        </button>
+
+                        <button id="send" type="button">
+                            Отправить
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="js/01-core.js"></script>
+    <script src="js/02-accounts.js"></script>
+    <script src="js/03-messages.js"></script>
+    <script src="js/04-chat.js"></script>
+    <script src="js/05-app.js"></script>
+
+</body>
+</html>
